@@ -1,6 +1,8 @@
 *
 !*/
 !*.cpp
+!*.cs
+!*.rb
 !*.h
 !*.md
 !.gitignore
