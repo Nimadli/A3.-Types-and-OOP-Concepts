@@ -3,7 +3,7 @@
 #include <ctime>
 
 const int SIZE  = 1024 * 1024;
-const int CALLS = 100000;
+const int CALLS = 300000;
 
 void staticArray() {
     static volatile char arr[SIZE];
