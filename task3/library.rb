@@ -15,47 +15,53 @@ class LibraryItem
 end
 
 class Book < LibraryItem
-  attr_reader :genre
+  attr_reader :genre, :pages
 
-  def initialize(title, author, publication_year, genre)
+  def initialize(title, author, publication_year, genre, pages = nil)
     super(title, author, publication_year)
     @genre = genre
+    @pages = pages
   end
 
   def display_info
     puts "Type: Book"
     super
     puts "Genre: #{@genre}"
+    puts "Pages: #{@pages}" if @pages
   end
 end
 
 class DVD < LibraryItem
-  attr_reader :genre
+  attr_reader :genre, :duration
 
-  def initialize(title, director, publication_year, genre)
+  def initialize(title, director, publication_year, genre, duration = nil)
     super(title, director, publication_year)
     @genre = genre
+    @duration = duration
   end
 
   def display_info
     puts "Type: DVD"
     super
     puts "Genre: #{@genre}"
+    puts "Duration: #{@duration} minutes" if @duration
   end
 end
 
 class CD < LibraryItem
-  attr_reader :genre
+  attr_reader :genre, :tracks
 
-  def initialize(title, artist, publication_year, genre)
+  def initialize(title, artist, publication_year, genre, tracks = nil)
     super(title, artist, publication_year)
     @genre = genre
+    @tracks = tracks
   end
 
   def display_info
     puts "Type: CD"
     super
     puts "Genre: #{@genre}"
+    puts "Tracks: #{@tracks}" if @tracks
   end
 end
 
@@ -96,9 +102,9 @@ class Library
 end
 
 # ---- Test ----
-book = Book.new("Concepts of Programming Languages", "Robert Sebesta", 2015, "Programming")
-dvd = DVD.new("Inception", "Christopher Nolan", 2010, "Science Fiction")
-cd = CD.new("A Day at the Races", "Queen", 1976, "Rock")
+book = Book.new("Concepts of Programming Languages", "Robert Sebesta", 2015, "Programming", 800)
+dvd = DVD.new("Inception", "Christopher Nolan", 2010, "Science Fiction", 148)
+cd = CD.new("A Day at the Races", "Queen", 1976, "Rock", 9)
 
 book.display_info
 puts
